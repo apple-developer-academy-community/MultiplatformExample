@@ -8,10 +8,17 @@
 import SwiftUI
 
 @main
-struct MultiplatformExampleApp: App {
+struct SwiftUITodoApp: App {
     var body: some Scene {
         WindowGroup {
+            #if os(macOS)
             ContentView()
+                .frame(minWidth: 100, idealWidth: 200, maxWidth: 300,
+                       minHeight: 100, idealHeight: 200, maxHeight: 300,
+                       alignment: .center)
+            #else
+            ContentView()
+            #endif
         }
     }
 }
